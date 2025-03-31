@@ -4,7 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 
 function Header() {
     return (
-        <header className='w-full bg-inherit p-4'>
+        <header className='w-full bg-inherit p-4 shadow-md'>
             <div className="header-container w-[90%] m-auto flex justify-between items-center">
                 <div className="search">
                     <FaSearch className='cursor-pointer text-xl' />
