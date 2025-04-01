@@ -1,16 +1,16 @@
 import React from 'react'
 
-function Product() {
+function Product({ title, price, images, category }) {
     return (
-        <div className="product cursor-pointer">
+        <div className="product cursor-pointer w-[200px] mb-10">
             <img
-                className='w-[200px]'
-                src="../../images/ZANVnHE.jpeg"
+                className=' w-[200px] h-[200px]'
+                src={images}
                 alt="img not found"
             />
-            <span id="price">$3.99</span><br />
-            <span id="description">Majestic Mountain Graphic</span><br />
-            <span id="category">T-shit</span>
+            <span id="price">${price}</span><br />
+            <span id="description">{title}</span><br />
+            <span id="category">{category.name}</span>
         </div>
     )
 }
