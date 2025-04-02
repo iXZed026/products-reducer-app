@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsServer } from '../../Redux/store/Product';
 
+import { Link } from 'react-router-dom';
+
 import Product from './Product/Product';
 
 function Products() {
@@ -47,7 +49,11 @@ function Products() {
             </div>
             <div className="products-item flex justify-start gap-3.5 flex-wrap">
                 {products.length && (
-                    products.map((product, key) => <Product key={key} {...product} />)
+                    products.map((product, key) => (
+                            <Link key={product.id} to={`/product-item/${product.id}`}>
+                                <Product  {...product} />
+                            </Link>
+                    ))
                 )}
             </div>
         </div >
