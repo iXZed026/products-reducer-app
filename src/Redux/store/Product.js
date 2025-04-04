@@ -14,9 +14,14 @@ const slice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getProductsServer.fulfilled, (state, action) => {
-                return action.payload
+                return action.payload.slice(0, 60)
+            })
+            .addCase(getProductsServer.pending, (state, action) => {
+                return { loading: true }
+
             })
     }
 })
+
 
 export default slice.reducer

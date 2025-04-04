@@ -2,15 +2,15 @@ import React from 'react'
 
 function Product({ title, price, images, category }) {
     return (
-        <div className="product cursor-pointer w-[200px] mb-10">
+        <div className="product cursor-pointer sm:w-[200px] mb-10 w-[80%] m-auto">
             <img
-                className=' w-[200px] h-[200px]'
+                className='w-[100%] sm:w-[200px] sm:h-[200px]'
                 src={images}
                 alt="img not found"
             />
-            <span id="price">${price}</span><br />
-            <span id="description">{title}</span><br />
-            <span id="category">{category.name}</span>
+            <div id="price">${price}</div><br />
+            <div id="description">{title}</div><br />
+            <div id="category">{category.name}</div>
         </div>
     )
 }

@@ -4,8 +4,10 @@ import ProductItem from "./components/ProductItem/ProductItem";
 
 const routes = [
     { path: "/", element: <Home />, },
+    { path: "/home", element: <Home />, },
     { path: "/cart/", element: <Cart /> },
-    { path: "/product-item/:id", element: <ProductItem /> }
+    { path: "/product-item/:id", element: <ProductItem /> },
+    { path: "/cart", element: <Cart /> },
 ]
 
 export default routes
