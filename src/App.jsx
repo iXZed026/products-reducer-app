@@ -3,11 +3,17 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Home from "./pages/Home/Home.jsx"
 
+import { useRoutes } from 'react-router-dom';
+import routes from './routes.jsx';
+
 function App() {
+
+  const router = useRoutes(routes)
+
   return (
     <>
       <Header />
-      <Home />
+      {router}
     </>
   )
 }
