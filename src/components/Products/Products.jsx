@@ -17,7 +17,7 @@ function Products() {
     let reducerProducts = useSelector(state => state.products);
     const [products, setProducts] = useState([])
 
-
+    const [filters, setFilters] = useState([]);
 
     const elementRef = useContext(ScrollContext)
 
@@ -29,12 +29,15 @@ function Products() {
     useEffect(() => {
         if (reducerProducts.length > 0) {
             setProducts(reducerProducts);
+            products.map(product => {   
+                setFilters(prevFilter => [...prevFilter, product.category.name])
+            })
         }
     }, [reducerProducts]);
 
     function filterHandler(e) {
 
-        const newProducts = reducerProducts.filter(product => product.category.name.toUpperCase() === e.target.value);
+        const newProducts = reducerProducts.filter(product => product.category.name === e.target.value);
 
         if (newProducts.length > 0) {
             setProducts(newProducts);
@@ -52,11 +55,9 @@ function Products() {
             <div className="products-header bg-[#24292E] p-2 rounded-md mb-3" >
                 <select className='rounded outline-none' name="" id="" onChange={filterHandler}>
                     <option value="ALL">All</option>
-                    <option value="CLOTHES">Clothes</option>
-                    <option value="ELECTRONICS">Electronicss</option>
-                    <option value="FURNITURE">Furniture</option>
-                    <option value="SHOES">Shoes</option>
-                    <option value="MISCELLANEOUS">Miscellaneous</option>
+                    {
+                        [...new Set(filters)].map((filter, key) => <option key={key} value={filter}>{filter}</option>)
+                    }
                 </select>
 
             </div>
